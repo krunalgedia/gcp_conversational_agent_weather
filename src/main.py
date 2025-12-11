@@ -14,6 +14,18 @@ class PlaybookRequest(BaseModel):
     city: str
 
 
+@app.get("/")
+async def root():
+    return {
+        "service": "Weather API for Google Conversational Agents",
+        "status": "running",
+        "endpoints": {
+            "POST /weather": "Get weather data for a city",
+            "GET /docs": "API documentation"
+        }
+    }
+
+
 @app.post("/weather", response_model=None)
 async def handle_post_weather(
     playbook_request: PlaybookRequest, is_valid: bool = Depends(verify_token)
