@@ -27,3 +27,4 @@ async def handle_post_weather(
             "status": "FAILURE",
             "message": "Due to a technical issue unable to get the weather updates.",
         }
+    
